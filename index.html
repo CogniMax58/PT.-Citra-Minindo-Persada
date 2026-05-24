@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="PT. Citra Minindo Persada — Indonesia General Trading. Export & Import of Commodities, Automotive Parts, Logistics & Documentation."/>
+<title>PT. Citra Minindo Persada | General Trading Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#E8432D;--red-dark:#B5321F;--red-pale:#FEF0ED;
+  --teal:#0D9E8A;--teal-dark:#077A6A;--teal-pale:#E0F7F4;
+  --amber:#F59E0B;--amber-dark:#B45309;--amber-pale:#FEF3C7;
+  --blue:#2563EB;--blue-dark:#1D4ED8;--blue-pale:#EFF6FF;
+  --green:#16A34A;--green-pale:#F0FDF4;
+  --ink:#0F172A;--ink-2:#1E293B;--ink-3:#334155;
+  --muted:#64748B;--border:#E2E8F0;
+  --bg:#F8FAFC;--white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:70px;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);box-shadow:0 1px 12px rgba(0,0,0,0.05)}
+.nav-logo-main{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--red);letter-spacing:-0.01em}
+.nav-logo-sub{font-size:10px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--ink-3);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{background:var(--red)!important;color:#fff!important;padding:9px 22px;border-radius:8px;font-weight:600!important;transition:background 0.2s!important}
+.nav-cta:hover{background:var(--red-dark)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ink);border-radius:2px}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 5vw 80px;gap:60px;background:var(--white);position:relative;overflow:hidden}
+.hero-blob{position:absolute;top:-120px;right:-120px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,67,45,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-blob2{position:absolute;bottom:-80px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(13,158,138,0.07) 0%,transparent 70%);pointer-events:none}
+.hero-left{position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red-pale);border:1px solid rgba(232,67,45,0.2);padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;color:var(--red);letter-spacing:0.04em;margin-bottom:24px}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,60px);font-weight:800;line-height:1.05;color:var(--ink);margin-bottom:20px;letter-spacing:-0.02em}
+h1 .accent-red{color:var(--red)}
+h1 .accent-teal{color:var(--teal)}
+.hero-desc{font-size:17px;font-weight:300;color:var(--muted);max-width:480px;margin-bottom:36px;line-height:1.8}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-size:14px;font-weight:600;padding:13px 28px;border-radius:10px;text-decoration:none;transition:background 0.2s,transform 0.15s;font-family:'Plus Jakarta Sans',sans-serif}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-1px)}
+.btn-teal{background:var(--teal)}
+.btn-teal:hover{background:var(--teal-dark)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--border);color:var(--ink-3);font-size:14px;font-weight:600;padding:11px 24px;border-radius:10px;text-decoration:none;transition:border-color 0.2s,color 0.2s}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
+.hero-stats{display:flex;gap:32px;margin-top:44px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap}
+.stat-n{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--ink)}
+.stat-l{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* HERO RIGHT — image mosaic */
+.hero-right{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:240px 180px;gap:12px}
+.hero-img{border-radius:16px;overflow:hidden;position:relative}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-img-tall{grid-row:1/3}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,0.4) 0%,transparent 60%)}
+.hero-img-label{position:absolute;bottom:12px;left:14px;font-size:11px;font-weight:600;color:#fff;letter-spacing:0.08em;text-transform:uppercase}
+
+/* STRIP */
+.strip{background:var(--ink);padding:20px 5vw;display:flex;gap:48px;align-items:center;flex-wrap:wrap;overflow:hidden}
+.strip-item{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.strip-dot{width:6px;height:6px;border-radius:50%}
+.strip-text{font-size:13px;font-weight:500;color:rgba(255,255,255,0.7);letter-spacing:0.04em;text-transform:uppercase}
+
+/* SECTIONS */
+section{padding:96px 5vw}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px}
+.section-tag::before{content:'';width:24px;height:3px;border-radius:2px}
+.tag-red{color:var(--red)}.tag-red::before{background:var(--red)}
+.tag-teal{color:var(--teal)}.tag-teal::before{background:var(--teal)}
+.tag-amber{color:var(--amber-dark)}.tag-amber::before{background:var(--amber)}
+.tag-blue{color:var(--blue)}.tag-blue::before{background:var(--blue)}
+h2{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.1;color:var(--ink);margin-bottom:16px;letter-spacing:-0.02em}
+.section-intro{font-size:16px;font-weight:400;color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:56px}
+
+/* ABOUT */
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-img-stack{position:relative;height:520px}
+.aimg{position:absolute;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.12)}
+.aimg img{width:100%;height:100%;object-fit:cover;display:block}
+.aimg-main{left:0;top:0;width:68%;height:80%}
+.aimg-accent{right:0;bottom:0;width:55%;height:55%}
+.aimg-badge{position:absolute;left:58%;top:50%;transform:translate(-50%,-50%);background:var(--red);color:#fff;border-radius:16px;padding:20px 22px;text-align:center;min-width:120px;box-shadow:0 12px 32px rgba(232,67,45,0.35);z-index:10}
+.aimg-badge-n{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1}
+.aimg-badge-l{font-size:11px;opacity:0.85;letter-spacing:0.06em;text-transform:uppercase;margin-top:4px}
+.about-features{display:flex;flex-direction:column;gap:20px;margin-top:36px}
+.af{display:flex;gap:16px;align-items:flex-start}
+.af-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.af-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8}
+.af h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.af p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* SERVICES */
+#services{background:var(--bg)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.scard{background:var(--white);border-radius:20px;padding:32px 28px;border:1px solid var(--border);transition:transform 0.22s,box-shadow 0.22s;cursor:default;position:relative;overflow:hidden}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:20px 20px 0 0}
+.scard-red::before{background:var(--red)}
+.scard-teal::before{background:var(--teal)}
+.scard-amber::before{background:var(--amber)}
+.scard-blue::before{background:var(--blue)}
+.scard-green::before{background:var(--green)}
+.scard-pink::before{background:#D946EF}
+.scard:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.09)}
+.scard-ico{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.scard-ico svg{width:22px;height:22px;fill:none;stroke-width:1.8;stroke:currentColor}
+.scard h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.scard p{font-size:13px;color:var(--muted);line-height:1.7}
+.scard ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:6px}
+.scard ul li{font-size:12px;color:var(--muted);padding-left:16px;position:relative}
+.scard ul li::before{content:'→';position:absolute;left:0;font-size:11px}
+
+/* COMMODITIES */
+#commodities{background:var(--white);padding:96px 5vw}
+.comm-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+.comm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.ccard{border-radius:20px;overflow:hidden;position:relative;cursor:default}
+.ccard-img{height:260px;overflow:hidden}
+.ccard-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s}
+.ccard:hover .ccard-img img{transform:scale(1.05)}
+.ccard-body{padding:24px 28px;background:var(--white);border:1px solid var(--border);border-top:none;border-radius:0 0 20px 20px}
+.ccard-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.ccard h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.ccard p{font-size:13px;color:var(--muted);line-height:1.7}
+.ccard-items{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.ccard-item{font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid var(--border);color:var(--ink-3)}
+
+/* PROCESS */
+#process{background:var(--ink)}
+#process h2{color:#fff}
+#process .section-intro{color:rgba(255,255,255,0.5)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.pstep{padding:40px 28px;border-right:1px solid rgba(255,255,255,0.07);position:relative}
+.pstep:last-child{border-right:none}
+.pnum{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;line-height:1;margin-bottom:20px;opacity:0.15;color:#fff}
+.pstep h4{font-size:16px;font-weight:600;color:#fff;margin-bottom:10px}
+.pstep p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7}
+.pstep-dot{width:10px;height:10px;border-radius:50%;margin-bottom:20px}
+
+/* GALLERY strip */
+#gallery{padding:0;overflow:hidden}
+.gallery-row{display:flex;gap:12px;padding:0 5vw 12px}
+.gallery-row.row2{padding-top:0}
+.gimg{border-radius:16px;overflow:hidden;flex-shrink:0}
+.gimg img{display:block;object-fit:cover}
+
+/* CONTACT */
+#contact{background:var(--bg)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.contact-cards{display:flex;flex-direction:column;gap:16px;margin-top:36px}
+.cinfo{display:flex;gap:16px;align-items:center;padding:18px 20px;background:var(--white);border:1px solid var(--border);border-radius:16px;transition:border-color 0.2s}
+.cinfo:hover{border-color:var(--teal)}
+.cinfo-ico{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cinfo-ico svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.cinfo-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px}
+.cinfo-val{font-size:15px;font-weight:600;color:var(--ink);text-decoration:none}
+.cinfo-val:hover{color:var(--teal)}
+.cform{background:var(--white);border-radius:24px;padding:36px;border:1px solid var(--border)}
+.cform h3{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:24px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fg label{font-size:12px;font-weight:600;color:var(--ink-3);letter-spacing:0.06em;text-transform:uppercase}
+.fg input,.fg select,.fg textarea{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--teal)}
+.fg select option{background:#fff}
+.fg textarea{resize:vertical;min-height:100px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-btn{background:var(--teal);color:#fff;border:none;padding:14px 28px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;border-radius:10px;cursor:pointer;transition:background 0.2s;width:100%;margin-top:4px}
+.form-btn:hover{background:var(--teal-dark)}
+#fstatus{font-size:13px;color:var(--teal);margin-top:12px;display:none}
+
+/* FOOTER */
+footer{background:var(--ink-2);padding:48px 5vw 32px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.4);margin-top:8px;line-height:1.6}
+.footer-col h5{font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:10px;transition:color 0.2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
+
+/* WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:200;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;border-radius:40px;padding:12px 20px 12px 14px;text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;box-shadow:0 6px 24px rgba(37,211,102,0.4);transition:transform 0.2s,box-shadow 0.2s}
+.wa-float:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,0.5)}
+.wa-float svg{width:22px;height:22px;fill:#fff;flex-shrink:0}
+
+/* MOBILE */
+@media(max-width:960px){
+  #hero{grid-template-columns:1fr;padding-top:100px}
+  .hero-right{display:none}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-img-stack{height:320px}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .comm-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .pstep{border-bottom:1px solid rgba(255,255,255,0.07)}
+  .contact-wrap{grid-template-columns:1fr;gap:40px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+  .fg-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .strip{gap:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" style="text-decoration:none">
+    <div class="nav-logo-main">PT. Citra Minindo Persada</div>
+    <div class="nav-logo-sub">General Trading · Indonesia</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#commodities">Products</a></li>
+    <li><a href="#process">How We Work</a></li>
+    <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-left">
+    <div class="hero-badge">Jakarta, Indonesia · Export &amp; Import</div>
+    <h1>Trade from<br/><span class="accent-red">Indonesia</span><br/>to the <span class="accent-teal">World</span></h1>
+    <p class="hero-desc">We source, document, and ship Indonesian commodities and automotive parts globally — your end-to-end trade partner.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        Start Trading
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#commodities" class="btn-outline">View Products</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">2</div><div class="stat-l">Trading Divisions</div></div>
+      <div><div class="stat-n">10+</div><div class="stat-l">Commodity Types</div></div>
+      <div><div class="stat-n">Global</div><div class="stat-l">Reach</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img hero-img-tall">
+      <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Container shipping port"/>
+      <div class="hero-img-overlay"></div>
+      <div class="hero-img-label">Logistics</div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=80" alt="Coffee beans from Indonesia"/>
+      <div class="hero-img-overlay"></div>
+      <div class="hero-img-label">Coffee</div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=400&q=80" alt="Spices from Indonesia"/>
+      <div class="hero-img-overlay"></div>
+      <div class="hero-img-label">Spices</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><div class="strip-dot" style="background:var(--red)"></div><span class="strip-text">Coffee & Cocoa Export</span></div>
+  <div class="strip-item"><div class="strip-dot" style="background:var(--teal)"></div><span class="strip-text">Natural Rubber</span></div>
+  <div class="strip-item"><div class="strip-dot" style="background:var(--amber)"></div><span class="strip-text">Spices & Herbs</span></div>
+  <div class="strip-item"><div class="strip-dot" style="background:#A78BFA"></div><span class="strip-text">Truck Spare Parts</span></div>
+  <div class="strip-item"><div class="strip-dot" style="background:#34D399"></div><span class="strip-text">Full Logistics Support</span></div>
+  <div class="strip-item"><div class="strip-dot" style="background:#60A5FA"></div><span class="strip-text">Trade Documentation</span></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-stack">
+      <div class="aimg aimg-main">
+        <img src="https://images.unsplash.com/photo-1531973819741-e27a5ae2cc7b?w=700&q=80" alt="Indonesian spice market"/>
+      </div>
+      <div class="aimg aimg-accent">
+        <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=500&q=80" alt="Cargo ship loading"/>
+      </div>
+      <div class="aimg-badge">
+        <div class="aimg-badge-n">5+</div>
+        <div class="aimg-badge-l">Years Experience</div>
+      </div>
+    </div>
+    <div>
+      <div class="section-tag tag-red">Who We Are</div>
+      <h2>Your Bridge Between Indonesia &amp; Global Markets</h2>
+      <p class="section-intro" style="margin-bottom:28px">PT. Citra Minindo Persada is a Jakarta-based general trading company specialising in connecting international buyers with Indonesia's finest products — managing everything from sourcing to delivery.</p>
+      <div class="about-features">
+        <div class="af">
+          <div class="af-icon" style="background:var(--red-pale);color:var(--red)">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div>
+            <h4>Commodity Trading Division</h4>
+            <p>Premium coffee, cocoa, rubber, and spices sourced directly from trusted Indonesian producers and farmers.</p>
+          </div>
+        </div>
+        <div class="af">
+          <div class="af-icon" style="background:var(--teal-pale);color:var(--teal)">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <h4>Automotive Trading Division</h4>
+            <p>OEM and aftermarket truck spare parts for Hino, Fuso, and major brands — engines, brakes, transmission, filters.</p>
+          </div>
+        </div>
+        <div class="af">
+          <div class="af-icon" style="background:var(--amber-pale);color:var(--amber-dark)">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+          </div>
+          <div>
+            <h4>Full Trade Documentation</h4>
+            <p>We handle all paperwork — invoices, CoO, phytosanitary certificates, bills of lading, and customs forms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="text-align:center;max-width:600px;margin:0 auto 56px">
+    <div class="section-tag tag-teal" style="justify-content:center">What We Offer</div>
+    <h2>Complete Trade Services</h2>
+    <p class="section-intro" style="margin:0 auto">From the farm to your warehouse — we handle every step of the international trade process.</p>
+  </div>
+  <div class="services-grid">
+    <div class="scard scard-red">
+      <div class="scard-ico" style="background:var(--red-pale);color:var(--red)">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <h3>Product Sourcing</h3>
+      <p>We find the right Indonesian supplier for your product, quantity, and quality requirements — with competitive pricing.</p>
+      <ul><li>Direct supplier network across Indonesia</li><li>Sample coordination &amp; quality checks</li><li>Price negotiation on your behalf</li></ul>
+    </div>
+    <div class="scard scard-teal">
+      <div class="scard-ico" style="background:var(--teal-pale);color:var(--teal)">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h3>Export &amp; Import</h3>
+      <p>Full export of Indonesian goods to your country, or import of goods into Indonesia — fully compliant with regulations.</p>
+      <ul><li>Export licenses &amp; permits</li><li>Customs clearance management</li><li>Import duty guidance</li></ul>
+    </div>
+    <div class="scard scard-amber">
+      <div class="scard-ico" style="background:var(--amber-pale);color:var(--amber-dark)">
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <h3>Logistics &amp; Shipping</h3>
+      <p>Sea, air, and land freight from Indonesian warehouses to your destination — with cargo tracking and insurance support.</p>
+      <ul><li>FCL &amp; LCL sea freight</li><li>Air cargo for urgent orders</li><li>Inland trucking &amp; last mile</li></ul>
+    </div>
+    <div class="scard scard-blue">
+      <div class="scard-ico" style="background:var(--blue-pale);color:var(--blue)">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <h3>Trade Documentation</h3>
+      <p>Complete preparation of all documents required for smooth international transactions — no paperwork headaches.</p>
+      <ul><li>Commercial invoice &amp; packing list</li><li>Certificate of Origin (CoO)</li><li>Phytosanitary &amp; health certs</li></ul>
+    </div>
+    <div class="scard scard-green">
+      <div class="scard-ico" style="background:var(--green-pale);color:var(--green)">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      </div>
+      <h3>Payment &amp; Finance</h3>
+      <p>Guidance on L/C, T/T, and trade finance arrangements to make cross-border payments safe and straightforward.</p>
+      <ul><li>Letter of Credit support</li><li>Multi-currency transactions</li><li>Secure payment coordination</li></ul>
+    </div>
+    <div class="scard scard-pink">
+      <div class="scard-ico" style="background:#FDF4FF;color:#A21CAF">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h3>Trade Consulting</h3>
+      <p>Market insights, supplier vetting, and import planning for buyers new to trading with Indonesia.</p>
+      <ul><li>Indonesia market research</li><li>Supplier due diligence</li><li>Step-by-step import planning</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- COMMODITIES -->
+<section id="commodities">
+  <div class="comm-header">
+    <div>
+      <div class="section-tag tag-amber">Products We Trade</div>
+      <h2>Commodities &amp; Automotive Parts</h2>
+    </div>
+    <p style="font-size:14px;color:var(--muted);max-width:320px;text-align:right">Indonesia's finest agricultural products and a wide range of truck spare parts, exported worldwide.</p>
+  </div>
+  <div class="comm-grid">
+    <div class="ccard">
+      <div class="ccard-img">
+        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=80" alt="Indonesian coffee beans"/>
+      </div>
+      <div class="ccard-body">
+        <span class="ccard-tag" style="background:var(--amber-pale);color:var(--amber-dark)">Agricultural</span>
+        <h3>Coffee — Arabica &amp; Robusta</h3>
+        <p>Premium green and roasted beans from Sumatra, Java, Flores, and Sulawesi — sourced directly from trusted cooperatives.</p>
+        <div class="ccard-items">
+          <span class="ccard-item">Arabica</span>
+          <span class="ccard-item">Robusta</span>
+          <span class="ccard-item">Green Beans</span>
+          <span class="ccard-item">Bulk Available</span>
+        </div>
+      </div>
+    </div>
+    <div class="ccard">
+      <div class="ccard-img">
+        <img src="https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?w=800&q=80" alt="Cocoa beans"/>
+      </div>
+      <div class="ccard-body">
+        <span class="ccard-tag" style="background:var(--red-pale);color:var(--red-dark)">Agricultural</span>
+        <h3>Cocoa Beans</h3>
+        <p>Fermented and non-fermented cocoa from Sulawesi and West Papua — consistent quality grades for international chocolate manufacturers.</p>
+        <div class="ccard-items">
+          <span class="ccard-item">Fermented</span>
+          <span class="ccard-item">Non-Fermented</span>
+          <span class="ccard-item">Bulk Bags</span>
+        </div>
+      </div>
+    </div>
+    <div class="ccard">
+      <div class="ccard-img">
+        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=800&q=80" alt="Indonesian spices"/>
+      </div>
+      <div class="ccard-body">
+        <span class="ccard-tag" style="background:var(--teal-pale);color:var(--teal-dark)">Spices</span>
+        <h3>Spices &amp; Natural Rubber</h3>
+        <p>Black &amp; white pepper, cinnamon, cloves, nutmeg, and RSS/SIR natural rubber — sourced from Indonesia's most productive regions.</p>
+        <div class="ccard-items">
+          <span class="ccard-item">Pepper</span>
+          <span class="ccard-item">Cinnamon</span>
+          <span class="ccard-item">Cloves</span>
+          <span class="ccard-item">Nutmeg</span>
+          <span class="ccard-item">Rubber</span>
+        </div>
+      </div>
+    </div>
+    <div class="ccard">
+      <div class="ccard-img">
+        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80" alt="Truck spare parts engine"/>
+      </div>
+      <div class="ccard-body">
+        <span class="ccard-tag" style="background:var(--blue-pale);color:var(--blue-dark)">Automotive</span>
+        <h3>Truck Spare Parts</h3>
+        <p>OEM and aftermarket spare parts for Hino, Fuso, and other commercial trucks — engines, brakes, suspension, filters, and transmission components.</p>
+        <div class="ccard-items">
+          <span class="ccard-item">Hino</span>
+          <span class="ccard-item">Fuso</span>
+          <span class="ccard-item">OEM</span>
+          <span class="ccard-item">Aftermarket</span>
+          <span class="ccard-item">Engines</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section id="gallery" style="padding:0 0 72px">
+  <div style="padding:0 5vw 12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+    <div>
+      <div class="section-tag tag-blue">Our World</div>
+      <h2 style="margin:0">Indonesia — Source of Quality</h2>
+    </div>
+  </div>
+  <div class="gallery-row">
+    <div class="gimg" style="width:320px;height:200px"><img src="https://images.unsplash.com/photo-1549989476-69a92fa57c36?w=400&q=75" alt="Coffee harvest" style="width:320px;height:200px"/></div>
+    <div class="gimg" style="width:240px;height:200px"><img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=300&q=75" alt="Cargo ship" style="width:240px;height:200px"/></div>
+    <div class="gimg" style="width:280px;height:200px"><img src="https://images.unsplash.com/photo-1600347992445-98410acd88e5?w=350&q=75" alt="Spice market" style="width:280px;height:200px"/></div>
+    <div class="gimg" style="width:260px;height:200px"><img src="https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?w=320&q=75" alt="Port containers" style="width:260px;height:200px"/></div>
+    <div class="gimg" style="width:220px;height:200px"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=280&q=75" alt="Logistics" style="width:220px;height:200px"/></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div style="text-align:center;max-width:560px;margin:0 auto 56px">
+    <div class="section-tag" style="color:#fff;justify-content:center"><span style="display:inline-block;width:24px;height:3px;background:#fff;border-radius:2px;margin-right:8px"></span>The Process</div>
+    <h2>How We Work</h2>
+    <p class="section-intro" style="margin:0 auto">A clear four-step journey from your first inquiry to delivery at your door.</p>
+  </div>
+  <div class="process-grid">
+    <div class="pstep">
+      <div class="pstep-dot" style="background:var(--red)"></div>
+      <div class="pnum">01</div>
+      <h4>Send Your Inquiry</h4>
+      <p>Tell us what product you need, your target quantity, and destination country. Use the contact form or WhatsApp us directly.</p>
+    </div>
+    <div class="pstep">
+      <div class="pstep-dot" style="background:var(--amber)"></div>
+      <div class="pnum">02</div>
+      <h4>Quotation &amp; Sourcing</h4>
+      <p>We source from our verified Indonesian supplier network and send you a competitive quote with full product specifications.</p>
+    </div>
+    <div class="pstep">
+      <div class="pstep-dot" style="background:var(--teal)"></div>
+      <div class="pnum">03</div>
+      <h4>Agreement &amp; Documents</h4>
+      <p>Once agreed, we prepare all trade documents — sales contract, invoice, packing list, CoO, and all required certificates.</p>
+    </div>
+    <div class="pstep">
+      <div class="pstep-dot" style="background:#60A5FA)"></div>
+      <div class="pnum">04</div>
+      <h4>Shipping &amp; Delivery</h4>
+      <p>We coordinate freight, handle customs clearance on both ends, and keep you updated until goods arrive at your destination.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div>
+      <div class="section-tag tag-teal">Get In Touch</div>
+      <h2>Ready to Start Trading?</h2>
+      <p class="section-intro" style="margin-bottom:8px">Reach out with your requirements and we'll respond within one business day with a quotation or more information.</p>
+      <div class="contact-cards">
+        <div class="cinfo">
+          <div class="cinfo-ico" style="background:var(--teal-pale);color:var(--teal)">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label">Phone / WhatsApp</div>
+            <a href="https://wa.me/62817717255" class="cinfo-val">+62 817 717 255</a>
+          </div>
+        </div>
+        <div class="cinfo">
+          <div class="cinfo-ico" style="background:var(--red-pale);color:var(--red)">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label">Email</div>
+            <a href="mailto:minindo25@gmail.com" class="cinfo-val">minindo25@gmail.com</a>
+          </div>
+        </div>
+        <div class="cinfo">
+          <div class="cinfo-ico" style="background:var(--amber-pale);color:var(--amber-dark)">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="cinfo-label">Office</div>
+            <span class="cinfo-val" style="font-weight:500">Jakarta, Indonesia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cform">
+      <h3>Send an Inquiry</h3>
+      <div class="fg-row">
+        <div class="fg"><label>Your Name</label><input type="text" id="fn" placeholder="John Smith"/></div>
+        <div class="fg"><label>Company</label><input type="text" id="fc" placeholder="Your Company Ltd."/></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label>Email</label><input type="email" id="fe" placeholder="you@company.com"/></div>
+        <div class="fg"><label>Country</label><input type="text" id="fco" placeholder="Your country"/></div>
+      </div>
+      <div class="fg">
+        <label>I'm interested in</label>
+        <select id="fi">
+          <option value="">Select a product...</option>
+          <option>Coffee (Arabica / Robusta)</option>
+          <option>Cocoa Beans</option>
+          <option>Natural Rubber</option>
+          <option>Spices (Pepper, Cinnamon, Cloves, Nutmeg)</option>
+          <option>Truck Spare Parts (Hino / Fuso)</option>
+          <option>Other Product</option>
+          <option>General Trade Inquiry</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Your Message</label>
+        <textarea id="fm" placeholder="Describe what you need — product, quantity, destination, any specific requirements..."></textarea>
+      </div>
+      <button class="form-btn" onclick="submitForm()">Send Inquiry →</button>
+      <p id="fstatus"></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">PT. Citra Minindo Persada</div>
+      <div class="footer-tagline">General Trading Company based in Jakarta, Indonesia.<br/>Your end-to-end partner for export &amp; import.</div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <a href="#services">Product Sourcing</a>
+      <a href="#services">Export &amp; Import</a>
+      <a href="#services">Logistics</a>
+      <a href="#services">Documentation</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="tel:+62817717255">+62 817 717 255</a>
+      <a href="mailto:minindo25@gmail.com">minindo25@gmail.com</a>
+      <a href="https://wa.me/62817717255">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 PT. Citra Minindo Persada. All rights reserved.</div>
+    <div class="footer-copy">Jakarta, Indonesia</div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/62817717255?text=Hello%2C%20I%20am%20interested%20in%20trading%20with%20PT.%20Citra%20Minindo%20Persada." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Chat on WhatsApp
+</a>
+
+<script>
+function toggleMenu(){
+  let m=document.getElementById('mob-menu');
+  if(!m){
+    m=document.createElement('div');
+    m.id='mob-menu';
+    m.style.cssText='position:fixed;top:70px;left:0;right:0;background:#fff;z-index:99;padding:20px 5vw 28px;display:flex;flex-direction:column;gap:0;border-bottom:1px solid #E2E8F0;box-shadow:0 8px 24px rgba(0,0,0,0.08)';
+    [['About','#about'],['Services','#services'],['Products','#commodities'],['How We Work','#process'],['Get In Touch','#contact']].forEach(([t,h],i)=>{
+      const a=document.createElement('a');
+      a.href=h;a.textContent=t;
+      a.style.cssText='font-size:16px;color:#0F172A;text-decoration:none;font-weight:500;padding:13px 0;border-bottom:1px solid #F1F5F9;display:block';
+      if(i===4){a.style.color='#E8432D';a.style.fontWeight='700'}
+      a.onclick=()=>{m.style.display='none'};
+      m.appendChild(a);
+    });
+    document.body.appendChild(m);
+  }
+  m.style.display=m.style.display==='flex'?'none':'flex';
+}
+
+function submitForm(){
+  const n=document.getElementById('fn').value.trim();
+  const e=document.getElementById('fe').value.trim();
+  const m=document.getElementById('fm').value.trim();
+  const c=document.getElementById('fc').value.trim();
+  const co=document.getElementById('fco').value.trim();
+  const i=document.getElementById('fi').value;
+  if(!n||!e){alert('Please enter your name and email.');return}
+  const body=encodeURIComponent(`Name: ${n}\nCompany: ${c}\nCountry: ${co}\nInterest: ${i}\n\nMessage:\n${m}`);
+  const subj=encodeURIComponent(`Trade Inquiry from ${n}${c?' - '+c:''}`);
+  window.open(`mailto:minindo25@gmail.com?subject=${subj}&body=${body}`);
+  const s=document.getElementById('fstatus');
+  s.textContent='✓ Your email client has opened. You can also reach us directly on WhatsApp.';
+  s.style.display='block';
+}
+
+const secs=document.querySelectorAll('section[id]');
+const links=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-90)cur=s.id});
+  links.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--red)':'var(--ink-3)'});
+},{passive:true});
+</script>
+</body>
+</html>
